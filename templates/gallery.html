@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+U-Air {{lt('Gallery')}}
+{% endblock %}
+
+
+{% block content %}
+<script>
+function hide_gallery_preview(){
+    $("#gallery_preview").hide('slow');
+}
+
+function open_gallery_preview(imgpath){
+    $("#gallery_preview").html("<img class='img-responsive' onclick='hide_gallery_preview();' src='"+imgpath+"'/>");
+    $("#gallery_preview").show('slow');
+}
+</script>
+
+   <div class="alert alert-info">{{lt("Gallery path")}}:<br/>{{session['conf']['images_path']}}</div>
+		<div id="gallery_preview" style='display:none;'></div>
+		<div style="height:160%;overflow:auto;">
+			{% for pp in images %}
+				  <div style="height: 150px;" class="col-xs-6 col-md-3 col">
+					<a href="#" onclick="open_gallery_preview('/download?path={{pp[0]}}');" class="thumbnail">
+					  <img class="img-responsive" title="{{pp[1]}}" src="/download?path={{pp[0]}}" alt="...">
+					</a>
+				  </div>
+			{% endfor %}
+		</div>
+{% endblock %}

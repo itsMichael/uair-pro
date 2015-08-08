@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+U-Air {{lt('Music player')}}
+{% endblock %}
+
+
+{% block content %}
+
+
+<link rel="stylesheet" href="/static/musicplayer.css" />
+<script>
+    $(document).ready(function (){
+    createplayers();
+    });
+</script>
+
+<div id="file-lr">
+    <div id="playlista-iframe">
+        {% if playlist %}
+        <div id="previewmusic">
+            <audio src='/audio'></audio>
+        </div>
+        	<ul class="list-group">
+            {% for song in playlist %}
+                <li class="list-group-item">
+                    <a href="#" onclick="launchmusicplayer('{{song[1]}}');">{{song[0]}}</a>
+						{% if loop.index0 > 0 %}
+						<span class="badge">
+							<img onclick="songmove({{loop.index0}},0);" class="glyphicon glyphicon-arrow-up" title="{{lt('Move song up')}}" src="/static/icons/playlist_up.png"/>
+						</span>
+						{% endif %}
+						{% if loop.revindex0 > 0 %}
+						<span class="badge">
+							<img onclick="songmove({{loop.index0}},1);" title="{{lt('Move song down')}}" src="/static/icons/playlist_down.png"/>
+						</span>
+						{% endif %}
+						<span class="badge">
+							<img onclick="removefromplaylist({{loop.index0}});" title="{{lt('Remove from playlist')}}" src="/static/icons/delete.png"/>
+						</span>
+                </li>
+            {% endfor %}
+            </ul>
+
+
+        {% else %}
+           <div class="alert alert-info">{{lt("Playlist is empty. Use filemanager to add songs.")}}</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

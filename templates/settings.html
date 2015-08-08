@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+U-Air {{lt('Settings')}}
+{% endblock %}
+
+
+{% block content %}
+    <div style="padding:10px;">
+        <h2>{{lt("Style")}}</h2>
+        <table class="table">
+			<tr>
+				<td><a class='button' href="/settheme?theme=0">{{lt("Default")}}</a></td>
+				<td><a class='button' href="/settheme?theme=1">{{lt("Blue")}}</a></td>
+			</tr>
+        </table>
+        <br/>
+
+       <h2>{{lt("Language (current")}} <b>{{session["lang"]}}</b>)</h2>
+
+        <table class="table">
+			<tr>
+				<td><a href="/setlang?lang=en">{{lt("English")}}</a></td>
+				<td><a href="/setlang?lang=pl">{{lt("Polish")}}</a></td>
+			</tr>
+        </table>
+        <br/>
+
+       <h2>{{lt("File manager options")}}</h2>
+        <input id="hiddenfiles_check" onclick="hiddenfiles_docheck();" type="checkbox" name="hide" value="Hidden" {% if session['hidden'] %}checked{% endif %}>
+       {{lt("Show hidden files/folders.")}}
+        <br/>
+    </div>
+{% endblock %}

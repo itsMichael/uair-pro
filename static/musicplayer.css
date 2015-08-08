@@ -1,0 +1,25 @@
+ .audiojs {
+    background: #393939;
+    width: 550;
+}
+.audiojs .play {
+	background-color: #393939;
+	width:500px;
+}
+
+.audiojs .scrubber {
+    background: #c9643b;
+}
+
+.audiojs .play-pause {
+    background-color: #393939;
+}
+
+.audiojs .loaded {
+	background-color: blue;
+}
+
+.audiojs .time strong, .audiojs .time em {
+	color: #f07746;
+}
+

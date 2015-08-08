@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+U-Air {{lt('File explorer')}}
+{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <link rel="stylesheet" href="/static/minimusicplayer.css" />
+
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<a href="/files?parent=1">
+				<h2><span class="glyphicon glyphicon-chevron-left"></span> {{lt("Back")}}</h2>
+			</a>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<a href="/files?home=1">
+				<h2><span class="glyphicon glyphicon-home"></span> {{lt("Home")}}</h2>
+			</a>
+		</div>
+	</div>
+
+    <ol class="breadcrumb">
+		<li>{{session['sciezka']}}</li>
+	</ol>
+	<div style="height:80%;overflow:auto;">
+		<ul class="list-group">
+				{% for nazwa in foldery %}
+					<li class="list-group-item"><script>pastefoldericon("{{nazwa}}")</script> <a class="folderlink" href="/files?folder={{nazwa}}">{{nazwa}}</a></li>
+				{% endfor %}
+				{% for nazwa in pliki %}
+					<li class="list-group-item"><script>pastefileicon("{{nazwa}}")</script> <a class="filelink" href="#" onclick='selectfile("{{nazwa}}");'>{{nazwa}}</a></li>
+				{% endfor %}
+		 </ul>
+	</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <strong><p id="filename">&nbsp;</p></strong>
+    <div id="fileinfo"></div>
+    <div id="previewbar" class="previewbar" style="display:none;">
+        <div id="previewimage" class="preview_image"></div>
+        <div id="previewmusic"></div>
+    </div>
+    <div id="uploadbar" class="uploadbar" style="display:none;">
+        <form method=post action='/upload' enctype='multipart/form-data'>
+            <input type='file' size=10 name='uploadfile'><br/>
+            <input type='submit' value='Send' />
+        </form>
+    </div>
+
+
+
+
+	<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+		<h3><span class="glyphicon glyphicon-upload"></span> <a class="button" onclick='toggleupload();' href="#">{{lt("Upload")}}</a></h3>
+	</div>
+	<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+		<h3><span class="glyphicon glyphicon-download"></span> <a id="downlaodbutton" class="button" href="#">{{lt("Download")}}</a></h3>
+	</div>
+	<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+		<h3><span class="glyphicon glyphicon-file"></span> <a class="button" onclick='togglepreview();' href="#">{{lt("Preview")}}</a></h3>
+	</div>
+	<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+		<h3><span class="glyphicon glyphicon-plus"></span> <a class="button" onclick='addtoplaylist();' href="#">{{lt("Add to playlist")}}</a></h3>
+	</div>
+</div>
+{% endblock %}

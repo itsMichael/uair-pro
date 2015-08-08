@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+U-Air Terminal
+{% endblock %}
+
+
+{% block content %}
+<div class="alert alert-danger"><strong>{{lt("Danger!")}}</strong> <p>{{lt("This is an experimental feature.")}}</p> 
+	<p>bad example: cd ~<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	ls<br>
+	good example: cd ~ && ls
+	</p>
+	                 
+</div>
+	<div class="row">
+		<div id="terminalcontent" style="background-color:#300a24; color:white; overflow:auto; height:60%;"></div>
+	</div>
+<div class="row">
+    <div>
+        <input class="form-control" placeholder="Entry command" type='text' id="commandtext" onclick="triggerenter();" style="width:628px;"></input>
+    </div>
+</div>
+{% endblock %}

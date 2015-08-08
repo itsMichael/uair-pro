@@ -1,0 +1,13 @@
+[ ] File browser
+    [X] polskie znkaki w plikach
+    [ ] Select Files
+[X] Music browser
+    [X] Playlist editor
+[X] Image browser
+[X] Shared folder
+    [X] Make views not availabe for shared users
+    [X] Make filemanager to not allow go outside shared folder
+[X] Terminal
+[ ] Multi-Language
+    [ ] English
+

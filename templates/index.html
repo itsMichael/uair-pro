@@ -1,0 +1,37 @@
+    <style type="text/css">
+    body {
+        width:300px;
+        margin: 0 auto;
+        background-color: grey;
+    }
+
+    #loginpanel{
+        background:white;
+        margin-top:200px;
+        border-radius:10px;
+        border-top:2px solid black;
+        border-bottom:2px solid black;
+        padding:5px;
+        background-image: url('static/gui/bg_0.png');
+        opacity:0.85;
+        text-align:center;
+    }
+
+    </style>
+    <div id="loginpanel">
+        {{msg|safe}}
+        <h3>UAir {{lt('Login')}}</h3>
+        <p>{{lt('Enter password shown in launcher, or enter predefinied one')}}</p>
+        <form method="post">
+            <table align="center">
+                <tr>
+                    <td>{{lt('Password')}}:</td>
+                    <td><input type="password" name="pass" class="nr1"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="{{lt('Login')}}"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
