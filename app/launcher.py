@@ -29,6 +29,10 @@ try:
 except:
     CLIMODE=True
 
+CLIMODE = False
+
+
+
 def check_pidfile():
     if os.path.exists(PIDFILE_PATH):
         return int(open(PIDFILE_PATH).read())

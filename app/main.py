@@ -28,7 +28,7 @@ app.register_blueprint(imagesviews.bp, url_prefix="")
 app.debug=True
 app.secret_key=SECRET_KEY
 
-conf=json.load(open(os.path.expanduser("~/.u-air.json")))
+# conf=json.load(open(os.path.expanduser("~/.u-air.json")))
 
 @app.before_request
 def init_config():
@@ -64,4 +64,3 @@ if __name__=="__main__":
         app.run(host="0.0.0.0", port=int(conf["port"]))
     else:
         print("Use launcher to run web server")
-

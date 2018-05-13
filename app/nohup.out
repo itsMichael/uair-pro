@@ -15908,3 +15908,7 @@ LANGS: translation not found: Take Scree127.0.0.1 - - [05/Mar/2014 11:28:18] "GE
 127.0.0.1 - - [05/Mar/2014 11:54:21] "GET /static/gui/bg_0.png HTTP/1.1" 200 -
 127.0.0.1 - - [05/Mar/2014 11:54:36] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [05/Mar/2014 11:54:36] "GET /static/gui/bg_0.png HTTP/1.1" 304 -
+Traceback (most recent call last):
+  File "/home/michal/Desktop/uair-pro/main.py", line 61, in <module>
+    app.run(host="0.0.0.0", port=int(conf["port"]))
+NameError: name 'conf' is not defined

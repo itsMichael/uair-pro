@@ -1,0 +1,31 @@
+name: uair
+version: '1.0'
+summary: Game Name
+description: |
+  Private cloud.
+
+grade: stable
+confinement: strict # strictly confined application
+
+apps:
+  uair:
+    command: desktop-launch $SNAP/uairlauncher
+    plugs:
+      - network
+      - network-bind
+      - x11
+      - wayland
+      - desktop
+      - opengl
+      - pulseaudio
+      - browser-support
+      - screen-inhibit-control
+      - joystick
+
+parts:
+  app:
+    plugin: dump
+    source: ./app
+    after:
+      - nwjs-support
+      - desktop-gtk3
